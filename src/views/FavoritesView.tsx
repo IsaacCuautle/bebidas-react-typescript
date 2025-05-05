@@ -1,6 +1,8 @@
 
 export default function FavoritesView() {
   return (
-    <div>FavoritesView</div>
+    <>
+      <h1>Favoritos</h1>
+    </>
   )
 }

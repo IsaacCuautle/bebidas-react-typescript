@@ -1,6 +1,9 @@
 
+
 export default function IndexView() {
   return (
-    <div>IndexView</div>
+    <>
+        <h1>Inicio</h1>
+    </>
   )
 }
