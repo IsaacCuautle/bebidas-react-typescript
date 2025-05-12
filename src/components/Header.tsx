@@ -3,7 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import { useAppStore } from "../stores/useAppStore";
 
-
 export default function Header() {
   const [searchFilters, setSearchFilters] = useState({
     ingredient: "",
@@ -15,12 +14,11 @@ export default function Header() {
   const fetchCategories = useAppStore((state) => state.fetchCategories); // Fetch categories from the store
   const categories = useAppStore((state) => state.categories); // Get categories from the store
   const searchRecipies = useAppStore((state) => state.searchRecipies); // Get categories from the store
- 
+
   useEffect(() => {
     fetchCategories(); // Fetch categories when the component mounts
   }, []);
 
-  
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -29,7 +27,6 @@ export default function Header() {
       [e.target.name]: e.target.value,
     });
   };
-
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
