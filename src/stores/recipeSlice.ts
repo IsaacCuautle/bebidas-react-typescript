@@ -1,13 +1,14 @@
 import { StateCreator } from "zustand";
 
 import { getCategories, getRecipies } from "../services/RecipeService";
-import type { Categories, Drinks, SearchFilters } from "../types";
+import type { Categories, Drink, Drinks, SearchFilters } from "../types";
 
 export type RecipiesSliceType = {
   categories: Categories;
   drinks: Drinks;
   fetchCategories: () => Promise<void>;
   searchRecipies: (SearchFilters: SearchFilters) => Promise<void>;
+  selectRecepie: (id: Drink['idDrink']) => Promise<void>;
 };
 
 // This is a slice of the store that manages the recipe categories
@@ -27,9 +28,16 @@ export const createRecipeSlice: StateCreator<RecipiesSliceType> = (set) => ({
     set({ categories });
   },
 
-  //
+  // Function to search for recipes based on filters
   searchRecipies: async (SearchFilters) => {
     const drinks = await getRecipies(SearchFilters);
     set({ drinks });
   },
+  
+  // Function to search for recipes based on filters
+  selectRecepie: async (id) => {
+    console.log(id);
+  },
+
+
 });
