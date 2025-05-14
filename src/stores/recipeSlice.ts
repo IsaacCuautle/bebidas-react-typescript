@@ -1,6 +1,6 @@
 import { StateCreator } from "zustand";
 
-import { getCategories, getRecipies } from "../services/RecipeService";
+import { getCategories, getRecipies, getRecipieByID } from "../services/RecipeService";
 import type { Categories, Drink, Drinks, SearchFilters } from "../types";
 
 export type RecipiesSliceType = {
@@ -36,7 +36,9 @@ export const createRecipeSlice: StateCreator<RecipiesSliceType> = (set) => ({
   
   // Function to search for recipes based on filters
   selectRecepie: async (id) => {
-    console.log(id);
+    const details = await getRecipieByID(id);
+    console.log(details);
+    
   },
 
 
