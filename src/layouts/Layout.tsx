@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 
 import Header from "../components/Header"
+import Modal from "../components/Modal"
 
 
 // Este es el layout de la aplicacion, donde se define el header y el outlet
@@ -14,6 +15,8 @@ export default function Layout() {
         <main className="container mx-auto py-16">
           <Outlet/>
         </main>
+
+        <Modal></Modal>
     </>
 
   )

@@ -2,7 +2,6 @@ import axios from "axios";
 
 import {
   CategoriesAPIResponseShcema,
-  DrinkDetailsAPIResponse,
   DrinkDetailsAPIResponses,
   DrinksAPIResponses,
 } from "../schemas/recipies-schema";
