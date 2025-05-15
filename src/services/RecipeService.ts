@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   CategoriesAPIResponseShcema,
+  DrinkDetailsAPIResponse,
   DrinkDetailsAPIResponses,
   DrinksAPIResponses,
 } from "../schemas/recipies-schema";
@@ -28,13 +29,13 @@ export async function getRecipies(filters: SearchFilters) {
   }
 }
 
-// TODO: implement the getSelectedRecipie function
 export async function getRecipieByID(id: Drink["idDrink"]) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
   const { data } = await axios.get(url);
   const result = DrinkDetailsAPIResponses.safeParse(data);
+  console.log(result);
 
   if (result.success) {
-    return result.data;
+    return result.data.drinks[0];
   }
 }

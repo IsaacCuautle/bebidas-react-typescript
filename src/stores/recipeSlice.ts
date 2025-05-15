@@ -5,6 +5,7 @@ import {
   getRecipies,
   getRecipieByID,
 } from "../services/RecipeService";
+
 import type {
   Categories,
   Drink,
@@ -12,7 +13,6 @@ import type {
   Recepie,
   SearchFilters,
 } from "../types";
-
 
 export type RecipiesSliceType = {
   categories: Categories;

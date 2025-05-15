@@ -43,9 +43,9 @@ export const DrinkDetailsAPIResponse = z.object({
   strMeasure3: z.string().nullable(),
   strMeasure4: z.string().nullable(),
   strMeasure5: z.string().nullable(),
-  strMeasure6: z.string().nullable(),
+  strMeasure6: z.string().nullable()
 });
 
 export const DrinkDetailsAPIResponses = z.object({
-  drinks: z.array(DrinkDetailsAPIResponse),
+  drinks: z.array(DrinkDetailsAPIResponse)
 });
