@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import Header from "../components/Header"
 import Modal from "../components/Modal"
 import { useAppStore } from "../stores/useAppStore"
+import Notification from "../components/Notification"
 
 
 // Este es el layout de la aplicacion, donde se define el header y el outlet
@@ -11,6 +12,7 @@ import { useAppStore } from "../stores/useAppStore"
 export default function Layout() {
 
   const loadFromStorage = useAppStore((state) => state.loadFromStorage)
+
 
   useEffect( () => {
     loadFromStorage()
@@ -25,7 +27,10 @@ export default function Layout() {
           <Outlet/>
         </main>
 
-        <Modal></Modal>
+        <Modal/>
+        <Notification
+          
+        />
     </>
 
   )

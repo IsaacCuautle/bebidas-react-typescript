@@ -9,7 +9,7 @@ export default function DrinkCard({ drink }: DrinkCardProps) {
   const selectedRecepie = useAppStore((state) => state.selectRecepie);
 
   return (
-    <div className="border shadow-lg">
+    <div className="border-none shadow-lg">
       <div className="overflow-hidden">
         <img
           className="hover:scale-125 transition-transform hover:rotate-2"
