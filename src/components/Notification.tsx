@@ -7,7 +7,7 @@ import { useAppStore } from "../stores/useAppStore";
 
 export default function Notification() {
   const notification = useAppStore((state) => state.notification);
-  const modal = useAppStore((state) => state.closeModal);
+  const hideNotification = useAppStore((state) => state.hideNotification);
 
   return (
     <div
@@ -28,6 +28,8 @@ export default function Notification() {
           <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="p-4">
               <div className="flex items-start">
+
+                {/* Icono condicional de la notificacion */}
                 <div className="flex-shrink-0">
                   {notification.error ? (
                     <CheckCircleIcon
@@ -45,15 +47,20 @@ export default function Notification() {
                   <p className="text-sm font-medium text-gray-900">
                     Notificación
                   </p>
+
+
+                  {/* Mensaje de la notificacion */}
                   <p className="mt-1 text-sm text-gray-500">
                     {notification.text}
                   </p>
                 </div>
                 <div className="ml-4 flex flex-shrink-0">
+
+                  {/* Ocultar notificacion */}
                   <button
                     type="button"
                     className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    onClick={modal}
+                    onClick={hideNotification}
                   >
                     <span className="sr-only">Cerrar</span>
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
