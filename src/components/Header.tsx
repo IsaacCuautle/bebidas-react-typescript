@@ -14,6 +14,7 @@ export default function Header() {
   const fetchCategories = useAppStore((state) => state.fetchCategories); // Fetch categories from the store
   const categories = useAppStore((state) => state.categories); // Get categories from the store
   const searchRecipies = useAppStore((state) => state.searchRecipies); // Get categories from the store
+  const showNotification = useAppStore((state) => state.showNotification);
 
   useEffect(() => {
     fetchCategories(); // Fetch categories when the component mounts
@@ -32,9 +33,11 @@ export default function Header() {
     e.preventDefault();
 
     // Validar
-    // TODO: REUTILIZAR LA VALIDACION
     if (Object.values(searchFilters).includes("")) {
-      console.log("Todos los campos son obligatorios");
+      showNotification({
+        text: "Todos los campos deben ser llenados",
+        error: false,
+      });
       return;
     }
 

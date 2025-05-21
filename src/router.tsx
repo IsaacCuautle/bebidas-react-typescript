@@ -1,18 +1,33 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import IndexView from "./views/IndexView";
-import FavoritesView from "./views/FavoritesView";
 import Layout from "./layouts/Layout";
+
+const FavoritesView = lazy(() => import("./views/FavoritesView"));
+const IndexView = lazy(() => import("./views/IndexView"));
 
 export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-
-          <Route path="/" element={<IndexView />} index />
-          <Route path="/favoritos" element={<FavoritesView />} />
-        
+          <Route
+            path="/"
+            element={
+              <Suspense fallback="Cargando...">
+                <IndexView />
+              </Suspense>
+            }
+            index
+          />
+          <Route
+            path="/favoritos"
+            element={
+              <Suspense fallback="Cargando favoritos...">
+                <FavoritesView />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

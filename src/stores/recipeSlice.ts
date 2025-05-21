@@ -27,7 +27,12 @@ export type RecipiesSliceType = {
 };
 
 // This is a slice of the store that manages the recipe categories
-export const createRecipeSlice: StateCreator<RecipiesSliceType> = (set) => ({
+export const createRecipeSlice: StateCreator<
+  RecipiesSliceType,
+  [],
+  [],
+  RecipiesSliceType
+> = (set) => ({
   // Initial state for categories
   categories: {
     drinks: [],
