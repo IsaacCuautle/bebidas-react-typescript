@@ -34,6 +34,31 @@ Este proyecto es una aplicación web para buscar recetas de bebidas y cócteles,
 
 # Imagenes del proyecto
 
+<div
+  class="imagenes"  
+  style="
+  display: flex;"
+>
+<img 
+  style="
+    width: 500px; 
+    heigth: 600px; "
+  src='https://github.com/user-attachments/assets/5f68a9d8-7fb1-434a-ad8a-2186212e2695'
+/>
+<img 
+  style="
+    width: 250px; 
+    heigth: 300px; "
+  src='https://github.com/user-attachments/assets/cf291fee-03a3-48c2-b1db-32dd816acc7d'
+/>
+<img 
+  style="
+    width: 250px; 
+    heigth: 350px; "
+  src='https://github.com/user-attachments/assets/d1162ff7-8e16-4eeb-bec4-1ca724c22321' 
+/>
+</div>
+
 ## Tecnologías
 
 - [React](https://react.dev/)
