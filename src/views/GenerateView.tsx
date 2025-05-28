@@ -1,23 +1,27 @@
 import { useAppStore } from "../stores/useAppStore";
 
 export default function GenerateAI() {
+  const showNotification = useAppStore((state) => state.showNotification);
+  const generateRecipe = useAppStore((state) => state.generateRecipe);
 
-  const showNotification = useAppStore(state => state.showNotification);
-  const generateRecipe = useAppStore(state => state.generateRecipe);
+  const recepie = useAppStore((state) => state.recepie);
+  const isGenerating = useAppStore((state) => state.isGenerating);
 
-
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const prompt = form.get("prompt") as string;
 
     if (prompt.trim() === "") {
-      showNotification({text: "La busqueda no puede ir vacia.", error: false});
+      showNotification({
+        text: "La busqueda no puede ir vacia.",
+        error: false,
+      });
       return;
     }
 
     await generateRecipe(prompt);
-  }
+  };
 
   return (
     <>
@@ -35,7 +39,10 @@ export default function GenerateAI() {
             <button
               type="submit"
               aria-label="Enviar"
-              className={`cursor-pointer absolute top-1/2 right-5 transform -translate-x-1/2 -translate-y-1/2`}
+              className={`cursor-pointer absolute top-1/2 right-5 transform -translate-x-1/2 -translate-y-1/2 ${
+                isGenerating ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={isGenerating}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +62,8 @@ export default function GenerateAI() {
           </div>
         </form>
 
-        <div className="py-10 whitespace-pre-wrap"></div>
+        {isGenerating && <p className="text-center animate-ping">Generando...</p>}
+        <div className="py-10 whitespace-pre-wrap">{recepie}</div>
       </div>
     </>
   );
