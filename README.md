@@ -11,6 +11,8 @@ Este proyecto es una aplicación web para buscar recetas de bebidas y cócteles,
 - **Notificaciones** para acciones del usuario.
 - **Diseño responsivo** con TailwindCSS.
 - **Ruteo** con React Router DOM.
+- **Generación de recetas con IA**: genera recetas personalizadas usando inteligencia artificial (OpenRouter).
+- **Animaciones y transiciones** para una mejor experiencia de usuario.
 
 ## Instalación
 
@@ -25,7 +27,12 @@ Este proyecto es una aplicación web para buscar recetas de bebidas y cócteles,
    npm install
    ```
 
-3. Inicia el servidor de desarrollo:
+3. Crea un archivo `.env` en la raíz del proyecto y agrega tu clave de API de OpenRouter:
+   ```
+   VITE_OPENROUTER_API_KEY=tu_clave_api
+   ```
+
+4. Inicia el servidor de desarrollo:
    ```sh
    npm run dev
    ```
@@ -70,7 +77,9 @@ Este proyecto es una aplicación web para buscar recetas de bebidas y cócteles,
 - [Headless UI](https://headlessui.com/)
 - [Heroicons](https://heroicons.com/)
 - [Axios](https://axios-http.com/)
+- [OpenRouter AI](https://openrouter.ai/)
+- [ai](https://sdk.vercel.ai/)
 
 ## API
 
-La app consume la [CocktailDB API](https://www.thecocktaildb.com/api.php) para obtener las recetas y categorías.
+La app consume la [CocktailDB API](https://www.thecocktaildb.com/api.php) para obtener las recetas y categorías, y utiliza OpenRouter para la generación de recetas con IA.
