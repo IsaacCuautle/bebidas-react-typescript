@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 
 const FavoritesView = lazy(() => import("./views/FavoritesView"));
+const GenerateView = lazy(() => import("./views/GenerateView"));
 const IndexView = lazy(() => import("./views/IndexView"));
 
 export default function AppRouter() {
@@ -25,6 +26,14 @@ export default function AppRouter() {
             element={
               <Suspense fallback="Cargando favoritos...">
                 <FavoritesView />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/generar"
+            element={
+              <Suspense fallback="Cargando generar...">
+                <GenerateView />
               </Suspense>
             }
           />
